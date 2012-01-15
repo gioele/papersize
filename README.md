@@ -16,7 +16,7 @@ Usage
 
 First you need to make sure that all the dependencies are installed
 
-    bundle install
+    bundle install --path gems/
 
 then you can launch the script
 
