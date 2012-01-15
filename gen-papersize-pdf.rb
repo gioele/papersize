@@ -29,8 +29,17 @@ def arrow_line(pdf)
 
 	v_center = pdf.cursor + 0.8.mm
 
+	measurements_box_width = 18.mm
+
+	line_length = bb.right - bb.left
+	line_left_end    = (line_length / 2) - (measurements_box_width / 2)
+	line_right_begin = (line_length / 2) + (measurements_box_width / 2)
+
 	#---
 	pdf.line [bb.left, v_center], 
+	         [line_left_end, v_center]
+
+	pdf.line [line_right_begin, v_center],
 	         [bb.right, v_center]
 
 	h_offset = 0.35.mm
@@ -54,7 +63,7 @@ def arrow_line(pdf)
 end
 
 def measurement_box(name, width, pdf)
-		pdf.move_down 2.mm
+		pdf.move_up 2.mm
 		pdf.text "#{width}mm (#{name})", :align => :center, :size => 8
 end
 
