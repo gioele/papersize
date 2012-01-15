@@ -53,6 +53,11 @@ def arrow_line(pdf)
 	         [bb.right - w_offset.mm, v_center - h_offset.mm]
 end
 
+def measurement_box(name, width, pdf)
+		pdf.move_down 2.mm
+		pdf.text "#{width}mm (#{name})", :align => :center, :size => 8
+end
+
 pdf = Prawn::Document.new(pdf_opts)
 
 paper_sizes.to_a.sort.each { |name, size|
@@ -80,9 +85,7 @@ paper_sizes.to_a.sort.each { |name, size|
 		pdf.undash
 
 		arrow_line(pdf)
-		
-		pdf.move_down 3.mm
-		pdf.text "#{width}mm (#{name})", :align => :center, :size => 8
+		measurement_box(name, width, pdf)
 	end
 }
 
