@@ -36,30 +36,30 @@ def arrow_line(pdf)
 	line_right_begin = (line_length / 2) + (measurements_box_width / 2)
 
 	#---
-	pdf.line [bb.left, v_center], 
-	         [line_left_end, v_center]
+	pdf.stroke_line [bb.left, v_center], 
+	                [line_left_end, v_center]
 
-	pdf.line [line_right_begin, v_center],
-	         [bb.right, v_center]
+	pdf.stroke_line [line_right_begin, v_center],
+	                [bb.right, v_center]
 
 	h_offset = 0.35.mm
 	w_offset = 1.mm
 	
 	#/--
-	pdf.line [bb.left, v_center],
-	         [bb.left + w_offset.mm, v_center + h_offset.mm]
+	pdf.stroke_line [bb.left, v_center],
+	                [bb.left + w_offset.mm, v_center + h_offset.mm]
 	
 	#\--
-	pdf.line [bb.left, v_center],
-	         [bb.left + w_offset.mm, v_center - h_offset.mm]
+	pdf.stroke_line [bb.left, v_center],
+	                [bb.left + w_offset.mm, v_center - h_offset.mm]
 	
 	#--\
-	pdf.line [bb.right, v_center],
-	         [bb.right - w_offset.mm, v_center + h_offset.mm]
+	pdf.stroke_line [bb.right, v_center],
+	                [bb.right - w_offset.mm, v_center + h_offset.mm]
 	
 	#--/
-	pdf.line [bb.right, v_center],
-	         [bb.right - w_offset.mm, v_center - h_offset.mm]
+	pdf.stroke_line [bb.right, v_center],
+	                [bb.right - w_offset.mm, v_center - h_offset.mm]
 end
 
 def measurement_box(name, width, pdf)
