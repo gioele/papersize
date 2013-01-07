@@ -14,10 +14,10 @@ paper_sizes = {
 	'A4' => [210, 297],
 	'A5' => [148, 210],
 	'A6' => [105, 148],
-	
+
 	'B5' => [176, 250],
 	'B6' => [125, 176],
-	
+
 	'C5' => [162, 229],
 	'C6' => [114, 162],
 }
@@ -35,7 +35,7 @@ def arrow_line(pdf)
 	line_right_begin = (line_length / 2) + (measurements_box_width / 2)
 
 	#---
-	pdf.stroke_line [bb.left, v_center], 
+	pdf.stroke_line [bb.left, v_center],
 	                [line_left_end, v_center]
 
 	pdf.stroke_line [line_right_begin, v_center],
@@ -43,19 +43,19 @@ def arrow_line(pdf)
 
 	h_offset = 0.35.mm
 	w_offset = 1.mm
-	
+
 	#/--
 	pdf.stroke_line [bb.left, v_center],
 	                [bb.left + w_offset.mm, v_center + h_offset.mm]
-	
+
 	#\--
 	pdf.stroke_line [bb.left, v_center],
 	                [bb.left + w_offset.mm, v_center - h_offset.mm]
-	
+
 	#--\
 	pdf.stroke_line [bb.right, v_center],
 	                [bb.right - w_offset.mm, v_center + h_offset.mm]
-	
+
 	#--/
 	pdf.stroke_line [bb.right, v_center],
 	                [bb.right - w_offset.mm, v_center - h_offset.mm]
